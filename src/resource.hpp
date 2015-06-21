@@ -1,6 +1,5 @@
 #ifndef RESOURCE_HPP
 #define RESOURCE_HPP
-#include <ppapi/c/pp_resource.h>
 extern "C" {
   #include <ppapi/c/pp_resource.h>
 }
