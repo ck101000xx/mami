@@ -12,6 +12,7 @@ public:
     friend void intrusive_ptr_release(const resource*);
 private:
     PP_Resource key;
+    std::atomic<int> ref_count;
 }
 void intrusive_ptr_add_ref(const resource*);
 void intrusive_ptr_release(const resource*);
