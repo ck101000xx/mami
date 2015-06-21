@@ -14,6 +14,7 @@ class resource_map : private boost::noncopyable {
 public:
     static resource_map& get_instance();
     PP_Resource insert(resource *ptr);
+    boost::intrusive_ptr<resource> find(PP_Resource key);
     void add_ref(PP_Resource key);
     void release(PP_Resource key);
 private:
