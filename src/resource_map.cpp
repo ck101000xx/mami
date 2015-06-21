@@ -6,7 +6,7 @@ static resource_map& resource_map::get_instance() {
 }
 PP_Resource resource_map::insert(resource *ptr) {
     int key = ++last_resource_key;
-    hash_map.insert({key, new boost::intrusive_ptr(ptr, false)});
+    hash_map.insert({key, new boost::intrusive_ptr(ptr)});
     return key;
 }
 boost::intrusive_ptr<resource> resource_map::find(PP_Resource key) {
