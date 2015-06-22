@@ -13,13 +13,11 @@ class resource_map : private boost::noncopyable {
 public:
     static resource_map& get_instance();
     PP_Resource insert(resource *ptr);
-    boost::intrusive_ptr<resource> find(PP_Resource key);
-    void add_ref(PP_Resource key);
-    void release(PP_Resource key);
+    boost::intrusive_ptr<resource>& find(PP_Resource key);
     void erase(PP_Resource key);
 private:
     resource_map() = default;
-    typedef tbb::concurrent_hash_map<PP_Resource, boost::intrusive_ptr<resource> > hash_map_t;
+    typedef tbb::concurrent_hash_map<PP_Resource, *resource> hash_map_t;
     hash_map_t hash_map;
     std::atomic<PP_Resource> last_resource_key = 0;
 }
