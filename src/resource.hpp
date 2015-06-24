@@ -44,11 +44,11 @@ public:
         rhs.px = nullptr;
     }
     this_type & operator=(this_tpye const & rhs) {
-        resource_ptr(rhs).swap(*this);
+        this_type(rhs).swap(*this);
         return *this;
     }
     this_type & operator=(this_type && rhs) {
-        resource_ptr(std::move(rhs)).swap(*this);
+        this_type(std::move(rhs)).swap(*this);
         return *this;
     }
     ~resource_ptr() {
